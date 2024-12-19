@@ -7,6 +7,7 @@ import ContextProvider from "./providers/ContextProvider";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton  } from '@clerk/nextjs';
 import SidebarWrapper from "./Components/Sidebar/SidebarWrapper";
 import { auth } from "@clerk/nextjs/server";
+import NextTopLoader from "nextjs-toploader";
 
 const nunito = Nunito({ 
   weight: ["400", "500", "600", "700", "800"],
@@ -29,9 +30,13 @@ export default async function RootLayout({
         <head>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         </head>
-        <body
-          className={nunito.className}
-        >
+        <body className={nunito.className}>
+          <NextTopLoader 
+            height={2}
+            color="#27AE60"
+            easing="cubic-bezier(.53,0.21,0,1)"
+            
+          />
           <ContextProvider>
             <GlobalStyleProvider>
             {userId && <Sidebar />}

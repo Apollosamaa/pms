@@ -58,6 +58,7 @@ export const GlobalProvider = ({ children }) => {
                 tasks,
                 deleteTask,
                 isLoading,
+                completedTask,
             }}
         >
             <GlobalUpdateContext.Provider value={{}}>

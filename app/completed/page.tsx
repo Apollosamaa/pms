@@ -6,11 +6,11 @@ import Tasks from '../Components/Tasks/Tasks';
 
 function page() {
   
-  const { completedTask} = useGlobalState();
+  const { completedTasks} = useGlobalState();
   return (
     
     <div>
-      <Tasks title="Completed Tasks" tasks={completedTask} />;
+      <Tasks title="Completed Tasks" tasks={completedTasks} />;
     </div>
   )
 }

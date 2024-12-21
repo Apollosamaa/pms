@@ -8,7 +8,7 @@ import menu from "@/app/utils/menu";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
-import { logout } from "@/app/utils/Icons";
+import { arrowLeft, bars, logout } from "@/app/utils/Icons";
 import { useClerk, UserButton, useUser } from "@clerk/nextjs";
 
 function Sidebar() {
@@ -33,6 +33,9 @@ function Sidebar() {
 
     return (
     <SidebarStyled theme={theme} collapsed={collapsed}>
+        <button className="toggle-nav" onClick={collapseMenu}>
+          {collapsed ? bars : arrowLeft}
+        </button>
         <div className="profile">
             <div className="profile-overlay"></div>
             <div className="image">

@@ -9,12 +9,20 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
 import { logout } from "@/app/utils/Icons";
-import { useClerk } from "@clerk/nextjs";
+import { useClerk, UserButton, useUser } from "@clerk/nextjs";
 
 function Sidebar() {
 
     const { theme, collapsed, collapseMenu } = useGlobalState();
     const { signOut } = useClerk();
+
+    const {user} = useUser();
+
+    const { firstName, lastName, imageUrl } = user || { 
+      firstname: "Guest", 
+      lastname: "",
+      imageUrl: "/avatar.jpg",
+    }
 
     const router = useRouter();
     const pathname = usePathname();
@@ -28,11 +36,13 @@ function Sidebar() {
         <div className="profile">
             <div className="profile-overlay"></div>
             <div className="image">
-                <Image width={70} height={70} src="/avatar.jpg" alt="profile"/>
+                <Image width={70} height={70} src={imageUrl} alt="profile"/>
             </div>
-            <h1>
-                <span>Apollo</span>
-                <span>Dev</span>
+            <div className="user-btn absolute z-30 top-0 w-full h-full">
+              <UserButton />
+            </div>
+            <h1 className="capitalize">
+                {firstName} {lastName}
             </h1>
         </div>
         <ul className="nav-items">
@@ -118,12 +128,12 @@ const SidebarStyled = styled.nav<{ collapsed: boolean }>`
       .cl-userButtonBox {
         width: 100%;
         height: 100%;
+      } 
 
-        .cl-userButtonTrigger {
-          width: 100%;
-          height: 100%;
-          opacity: 0;
-        }
+      .cl-userButtonTrigger {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
       }
     }
   }

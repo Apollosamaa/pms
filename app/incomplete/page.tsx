@@ -8,7 +8,7 @@ function page() {
   const { incompleteTasks } = useGlobalState();
   return (
     <div>
-      <Tasks title="Incomplete Tasks" tasks={incompleteTasks} />;
+      <Tasks title="Incomplete Tasks" tasks={incompleteTasks} />
     </div>
   )
 }

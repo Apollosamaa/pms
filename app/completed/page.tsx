@@ -10,7 +10,7 @@ function page() {
   return (
     
     <div>
-      <Tasks title="Completed Tasks" tasks={completedTasks} />;
+      <Tasks title="Completed Tasks" tasks={completedTasks} />
     </div>
   )
 }

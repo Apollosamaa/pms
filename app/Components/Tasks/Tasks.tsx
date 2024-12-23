@@ -38,7 +38,7 @@ function Tasks({ title, tasks }: Props) {
         <div className="task-loader w-full h-full flex items-center justify-center" >
             <span className="loader"></span>
         </div>)}
-    </TaskStyled>;
+    </TaskStyled>
 }
 
 const TaskStyled = styled.div`

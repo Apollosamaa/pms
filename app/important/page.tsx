@@ -8,7 +8,7 @@ function page() {
 
   return (
     <div>
-      <Tasks title="Important Tasks" tasks={importantTasks} />;
+      <Tasks title="Important Tasks" tasks={importantTasks} />
     </div>
   )
 }
